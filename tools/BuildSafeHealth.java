@@ -92,11 +92,12 @@ public class BuildSafeHealth implements Opcodes {
     static byte[] patch(String name, byte[] bytes) {
         if (name.equals("fabric.mod.json")) {
             String old = new String(bytes, StandardCharsets.UTF_8);
-            String next = old.replace("\"version\": \"2.5.7\"", "\"version\": \"2.5.7+visibility.1\"")
+            String next = old.replace("\"version\": \"2.5.7\"", "\"version\": \"2.5.7+visibility.2\"")
                 .replace("\"healthindicators.mixins.json\"", "\"healthindicators.mixins.json\", \"" + EXTRA_MIXINS + "\"")
                 .replace("Displays a health bar above mobs and players", "Displays health above eligible visible players")
-                .replace("\"MIT\"", "\"LicenseRef-HealthIndicators-Visibility\"");
-            if (!next.contains(EXTRA_MIXINS) || !next.contains("2.5.7+visibility.1"))
+                .replace("\"MIT\"", "\"LicenseRef-HealthIndicators-Visibility\"")
+                .replace("\"name\": \"Health Indicators\"", "\"name\": \"체력바 모드\"");
+            if (!next.contains(EXTRA_MIXINS) || !next.contains("2.5.7+visibility.2"))
                 throw new IllegalArgumentException("Unexpected mod metadata");
             return next.getBytes(StandardCharsets.UTF_8);
         }

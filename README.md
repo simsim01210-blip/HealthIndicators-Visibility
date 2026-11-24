@@ -1,4 +1,4 @@
-# Health Indicators Visibility
+# 체력바 모드
 
 Minecraft Java **1.20.1 Fabric** 클라이언트용 모드입니다. 플레이어의 이름표 위에 하트 또는 숫자로 체력을 표시합니다. AdyTech99의 [Health Indicators 2.5.7](https://modrinth.com/mod/health-indicators/version/2.5.7)을 바탕으로 만든 수정본입니다.
 
@@ -6,7 +6,7 @@ Minecraft Java **1.20.1 Fabric** 클라이언트용 모드입니다. 플레이�
 
 1. Modrinth App에서 **Minecraft 1.20.1 · Fabric** 프로필을 엽니다. Fabric Loader **0.19.3**과 Java 17로 검증했습니다.
 2. 프로필의 **콘텐츠 추가**에서 **Fabric API**와 **YetAnotherConfigLib (YACL)**의 1.20.1 Fabric 버전을 설치합니다. [Fabric API](https://modrinth.com/mod/fabric-api/versions?g=1.20.1&l=fabric) · [YACL 3.6.6](https://modrinth.com/mod/yacl/version/3.6.6%2B1.20.1-fabric)
-3. **[수정본 JAR 다운로드](https://github.com/simsim01210-blip/HealthIndicators-Visibility/releases/download/v2.5.7-visibility.1/HealthIndicators-2.5.7-1.20.1-visibility.jar)** → 프로필 **폴더 열기** → `mods` 폴더에 넣고 실행합니다.
+3. **[수정본 JAR 다운로드](https://github.com/simsim01210-blip/HealthIndicators-Visibility/releases/download/v2.5.7-visibility.2/HealthIndicators-2.5.7-1.20.1-visibility.2.jar)** → 프로필 **폴더 열기** → `mods` 폴더에 넣고 실행합니다.
 
 기존 Health Indicators가 설치돼 있다면 게임을 종료하고 기존 JAR을 교체하세요. **Health Indicators JAR은 하나만** 넣으면 됩니다.
 
