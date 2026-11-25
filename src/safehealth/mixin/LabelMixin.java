@@ -18,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import safehealth.HealthDraw;
+import safehealth.MountedHealth;
 
 
 @Mixin(targets = "net.minecraft.class_897", remap = false)
@@ -55,5 +56,6 @@ abstract class LabelMixin {
         if (client == null || client.field_1724 == null) return;
         float tickDelta = client.method_1488();
         health.safehealth$draw(player, 0, tickDelta, matrices, consumers, light);
+        MountedHealth.drawAbove(player, tickDelta, client, matrices, consumers, light);
     }
 }

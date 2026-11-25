@@ -65,6 +65,10 @@ public final class Geometry {
     private Geometry() {}
 
     public static boolean visible(class_1309 target, float delta, class_310 client) {
+        return visible(target, delta, client, null);
+    }
+
+    static boolean visible(class_1309 target, float delta, class_310 client, class_243 mountAnchor) {
         if (client == null || client.field_1724 == null || client.field_1687 == null ||
                 target == null || target.method_5770() != client.field_1687 || !Float.isFinite(delta)) return false;
         var world = client.field_1687;
@@ -75,7 +79,7 @@ public final class Geometry {
         double dy = (target.field_5971 - target.method_23318()) * (1.0 - delta);
         double dz = (target.field_5989 - target.method_23321()) * (1.0 - delta);
         var body = target.method_5829();
-        var headroom = body.method_35578(body.field_1325 + HEADROOM).method_35575(body.field_1325);
+        var headroom = body.method_35578(body.field_1325 + (mountAnchor == null ? HEADROOM : 1.0)).method_35575(body.field_1325);
         var drawnHeadroom = headroom.method_989(dx, dy, dz);
         if (world.method_20812(target, headroom).iterator().hasNext() ||
                 ((dx != 0 || dy != 0 || dz != 0) && world.method_20812(target, drawnHeadroom).iterator().hasNext())) return false;
@@ -86,8 +90,8 @@ public final class Geometry {
         double x = target.method_23317() + dx;
         double z = target.method_23321() + dz;
         double labelY = target.method_23318() + dy + target.method_51152();
-        var baseLabel = new class_243(x, labelY, z);
-        boolean hasScore = cameraEye.method_1025(new class_243(target.method_23317(), target.method_23318(), target.method_23321())) < 100.0 &&
+        var baseLabel = mountAnchor == null ? new class_243(x, labelY, z) : mountAnchor;
+        boolean hasScore = target instanceof net.minecraft.class_1657 && cameraEye.method_1025(new class_243(target.method_23317(), target.method_23318(), target.method_23321())) < 100.0 &&
                 world.method_8428().method_1189(2) != null;
         var nameLabel = hasScore ? new class_243(x, labelY + SCORE_LINE_HEIGHT, z) : baseLabel;
 
